@@ -102,5 +102,14 @@ body {
 .service-box p {
   font-size: 15px;
   line-height:
+}
+.main-footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+}
+
 
 
