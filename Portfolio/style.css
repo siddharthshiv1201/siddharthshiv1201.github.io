@@ -32,3 +32,34 @@ body {
   font-size: 18px;
   font-weight: bold;
 }
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.about-left {
+  width: 60%;
+}
+
+.about-left h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.about-left p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about-right {
+  width: 35%;
+}
+
+.about-right img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
