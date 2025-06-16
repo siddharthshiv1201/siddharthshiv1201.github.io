@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:cursive;
+}
+
+.navbar {
+  background-color: rgb(41, 198, 242);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left a {
+  color: white;
+  text-decoration: none;
+  margin-right: 50px;
+  font-weight: 500;
+}
+
+.nav-left a:last-child {
+  margin-right: 0;
+}
+
+.nav-right {
+  font-size: 18px;
+  font-weight: bold;
+}
