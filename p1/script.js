@@ -45,7 +45,7 @@ const registerForm = () => {
      const str = `<div>
     <h3>Registration Form</h3>
     <p><button onclick='loginForm()'>Submit</button></p>
-    <p><button onclick='loginForm()'>Already a member? Login here...</button></p>
+    <p><button onclick='loginForm()'>Already a member Login here...</button></p>
     `
     root.innerHTML = str + "</div>"
 }
