@@ -2,6 +2,7 @@ const root = document.getElementById("root");
 let users = [];
 
 const renderUserList = () => {
+    if (users.length===0) return "";
     let x= "<h4>Registered Users:</h4>";
     if(users.length==0){
         return "<p>No Users Registered</p>";
