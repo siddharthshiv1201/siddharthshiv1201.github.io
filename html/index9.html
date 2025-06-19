@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Map Tag</title>
+</head>
+<body>
+  <h1>Map tag</h1>
+
+  <!-- Map Image -->
+  <img src="India-States-Map.png" usemap="#indiamap" alt="India Map" />
+
+  <!-- Defining Map -->
+  <map name="indiamap">
+    <!-- Uttar Pradesh: small clickable circle at 244,147 -->
+    <area shape="circle" coords="244,147,10,500" href="#" alt="Uttar Pradesh"
+      onclick="alert('Uttar Pradesh is the most populous state of India with Lucknow as its capital.')" />
+
+    <!-- Rest of map: full rectangle, excluding UP area -->
+    <area shape="default" href="https://www.bjp.org" alt="BJP Website" />
+  </map>
+</body>
+</html>
