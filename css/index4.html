@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transformation and Transition</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    div {
+      width: 150px;
+      height: 80px;
+      line-height: 80px;
+      margin: 20px auto;
+      background: linear-gradient(45deg, pink, lightblue);
+      color: #222;
+      font-weight: bold;
+      font-size: 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+    }
+
+    div:hover {
+      transform: scale(1.5) rotate(5deg);
+      background: linear-gradient(45deg, lightblue, pink);
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>Transformation and Transition</h1>
+  <div>Hello World</div>
+</body>
+</html>
