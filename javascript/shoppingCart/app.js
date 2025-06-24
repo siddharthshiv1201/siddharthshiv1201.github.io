@@ -22,8 +22,9 @@ function showHome() {
 // Add to cart
 function addToCart(id) {
   cart[id] = (cart[id] || 0) + 1;
-  alert("Item added to cart!");
+  alert("🛒 Item added to cart!");
 }
+
 
 // Show cart page
 function showCart() {
