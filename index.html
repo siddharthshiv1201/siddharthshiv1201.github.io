@@ -14,15 +14,15 @@
       <strong>Siddharth Shiv</strong>
     </div>
     <div class="nav-left">
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">Projects</a>
-      <a href="#">Skills</a>
-      <a href="#">Contacts</a>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <section class="about-section">
+  <section class="about-section" id="home">
     <div class="about-left">
       <h2><strong>MERN Stack Developer</strong></h2>
       <p>
@@ -38,7 +38,7 @@
     </div>
   </section>
 
-  <section class="services-section">
+  <section class="services-section" id="services">
     <h2>My Services</h2>
     <div class="services-container">
       <div class="service-box">
@@ -65,30 +65,80 @@
     </div>
   </section>
 
-  <section class="projects-section">
+  <section class="projects-section" id="projects">
     <h2>My Projects</h2>
     <div class="projects-container">
       <div class="project-box">
-        <img src="https://source.unsplash.com/400x250/?food" alt="Foodmart" />
-        <h3>Foodmart</h3>
-        <p>FoodMart is an online grocery store platform offering seamless shopping experience, real-time updates, and easy payment integration.</p>
+        <a href="./javascript/foodmart/index.html" target="_blank">
+          <!-- <img src="https://source.unsplash.com/400x250/?food" alt="Foodmart" /> -->
+          <h3>Foodmart</h3>
+          <p>FoodMart is an online grocery store platform offering seamless shopping experience, real-time updates, and easy payment integration.</p>
+        </a>
       </div>
       <div class="project-box">
-        <img src="https://source.unsplash.com/400x250/?bank" alt="Mybank" />
-        <h3>Mybank</h3>
-        <p>MyBank is a modern banking app for secure transactions, account management, and smart financial analytics for users and businesses.</p>
+        <a href="./javascript/mybank/index.html" target="_blank">
+          <!-- <img src="https://source.unsplash.com/400x250/?bank" alt="Mybank" /> -->
+          <h3>Mybank</h3>
+          <p>MyBank is a modern banking app for secure transactions, account management, and smart financial analytics for users and businesses.</p>
+        </a>
       </div>
       <div class="project-box">
-        <img src="https://source.unsplash.com/400x250/?shopping" alt="Shopping Cart" />
-        <h3>Shopping Cart</h3>
-        <p>A sleek shopping cart system supporting multiple products, discounts, and smooth checkout process built with MERN stack.</p>
+        <a href="./javascript/shoppingCart/index.html" target="_blank">
+          <!-- <img src="https://source.unsplash.com/400x250/?shopping" alt="Shopping Cart" /> -->
+          <h3>Shopping Cart</h3>
+          <p>A sleek shopping cart system supporting multiple products, discounts, and smooth checkout process built with MERN stack.</p>
+        </a>
       </div>
     </div>
   </section>
 
+  <!-- <section class="skills-section" id="skills">
+    <h2>My Skills</h2>
+    <p style="text-align:center;">(Add your skills content here)</p>
+  </section> -->
+
+<section class="contact-section" id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-box">
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Type your message here..." rows="4" required></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
   <footer class="main-footer">
     &copy; Copyright Siddharth Shiv (MERN Developer)
   </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('.nav-left a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith("#")) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
