@@ -8,8 +8,13 @@
 </head>
 <body>
   <div class="container">
-    <button onclick="showHome()">Home</button>
-    <button onclick="showCart()">Cart</button>
+    <header>
+      <h1>🛍 Siddharth's Online Store</h1>
+      <div class="nav-buttons">
+        <button onclick="showHome()">Home</button>
+        <button onclick="showCart()">Cart (<span id="cart-count">0</span>)</button>
+      </div>
+    </header>
     <hr />
     <div id="root"></div>
   </div>
