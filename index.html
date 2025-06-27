@@ -1,34 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MainPage</title>
-    <style>*{font-style: italic; font-weight:1 ;}</style>
-  </head>
-  <body>
-    <h1>Siddharth Shiv</h1>
-    <br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-right">
+      <strong>Siddharth Shiv</strong>
+    </div>
+    <div class="nav-left">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Projects</a>
+      <a href="#">Skills</a>
+      <a href="#">Contacts</a>
+    </div>
+  </nav>
+
+  <section class="about-section">
+    <div class="about-left">
+      <h2><strong>MERN Stack Developer</strong></h2>
+      <p>
+        I am a passionate MERN stack developer with experience in building scalable web applications.<br>
+        I enjoy turning complex problems into simple, beautiful, and intuitive designs.<br>
+        With expertise in MongoDB, Express, React, and Node.js, I deliver efficient backend and sleek frontends.<br>
+        Always eager to learn new technologies and build impactful digital products.<br>
+        Let's create something amazing together.
+      </p>
+    </div>
+    <div class="about-right">
+      <img src="th.jpg" alt="Developer Image" />
+    </div>
+  </section>
+
+  <section class="services-section">
+    <h2>My Services</h2>
+    <div class="services-container">
+      <div class="service-box">
+        <i class="fas fa-code service-icon"></i>
+        <h3>Frontend Development</h3>
+        <p>
+          We craft responsive and user-friendly interfaces using React, HTML, CSS, and JavaScript. Our focus is on performance and clean UI design.
+        </p>
+      </div>
+      <div class="service-box">
+        <i class="fas fa-server service-icon"></i>
+        <h3>Backend Development</h3>
+        <p>
+          We build scalable and secure backend systems with Node.js, Express, and MongoDB. API integrations and database management are our core.
+        </p>
+      </div>
+      <div class="service-box">
+        <i class="fas fa-mobile-alt service-icon"></i>
+        <h3>Mobile App Development</h3>
+        <p>
+          We develop smooth cross-platform mobile applications using React Native and Flutter, ensuring high performance and modern UI.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
     <h2>My Projects</h2>
-    <a href="./Portfolio/index.html"><h1>My Portfolio</h1></a>
-    <ol>
-      <li><a href="p1/index.html">Project 1|MyBank</a></li>
+    <div class="projects-container">
+      <div class="project-box">
+        <img src="https://source.unsplash.com/400x250/?food" alt="Foodmart" />
+        <h3>Foodmart</h3>
+        <p>FoodMart is an online grocery store platform offering seamless shopping experience, real-time updates, and easy payment integration.</p>
+      </div>
+      <div class="project-box">
+        <img src="https://source.unsplash.com/400x250/?bank" alt="Mybank" />
+        <h3>Mybank</h3>
+        <p>MyBank is a modern banking app for secure transactions, account management, and smart financial analytics for users and businesses.</p>
+      </div>
+      <div class="project-box">
+        <img src="https://source.unsplash.com/400x250/?shopping" alt="Shopping Cart" />
+        <h3>Shopping Cart</h3>
+        <p>A sleek shopping cart system supporting multiple products, discounts, and smooth checkout process built with MERN stack.</p>
+      </div>
+    </div>
+  </section>
 
-      <li><a href="./p2/index.html">Project 2|FoodMart</a></li>
-    </ol>
-    <h2>My Assignmnets</h2>
-    <ol>
-      <li><a href="">Assignment 1</a></li>
+  <footer class="main-footer">
+    &copy; Copyright Siddharth Shiv (MERN Developer)
+  </footer>
 
-      <li><a href="">Assignment 2</a></li>
-    </ol>
-     <h2>My Folders</h2>
-     <ol>
-      <li><a href="./html/index.html">HTML</a></li>
-
-      <li><a href="./css/index.html">CSS</a></li>
-      <li><a href="./javascript/index.html">JAVASCRIPT</a></li>
-    </ol>
-
-  </body>
+</body>
 </html>
