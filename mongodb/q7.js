@@ -182,3 +182,206 @@ db.students.aggregate([
         }
     }
 ]);
+
+
+// loopup seekhneg
+
+// posts
+// db.posts.insertOne({_id:"p1", post:"Post 1"})
+// db.posts.insertOne({_id:"p2", post:"Post 2"})
+
+//  db.commnets.insertOne({_id:"c1", comment:"Comment 1", pid:"p1"})
+//   db.comments.insertOne({_id:"c2", comment:"Comment 2", pid:"p1"})
+//    db.comments.insertOne({_id:"c3", comment:"Comment 1", pid:"p2"})
+//       db.comments.insertOne({_id:"c4", comment:"Comment 2", pid:"p2"})
+//     db.comments.insertOne({_id:"c5", comment:"Comment 3", pid:"p2"})
+
+//     db.posts.aggregate([
+//   {
+//     $lookup: {
+//       from: "comments",
+//       localField: "_id",
+//       foreignField: "pid",
+//       as: "comments"
+//     }
+//   },
+//   {
+//     $unwind: "$comments"
+  
+//   }
+// ])
+
+
+db.marks.insertMany([
+    {name: "John", term: "t1", subject: "Maths", marks: 95},
+    {name: "John", term: "t2", subject: "Maths", marks: 80},
+    {name: "John", term: "t3", subject: "Maths", marks: 70},
+    {name: "John", term: "t1", subject: "Science", marks: 50},
+    {name: "John", term: "t2", subject: "Science", marks: 60},
+    {name: "John", term: "t3", subject: "Science", marks: 90},
+    {name: "Cathy", term: "t1", subject: "Maths", marks: 91},
+    {name: "Cathy", term: "t2", subject: "Maths", marks: 81},
+    {name: "Cathy", term: "t3", subject: "Maths", marks: 71},
+    {name: "Cathy", term: "t1", subject: "Science", marks: 51},
+    {name: "Cathy", term: "t2", subject: "Science", marks: 61},
+    {name: "Cathy", term: "t3", subject: "Science", marks: 91},
+])
+
+db.marks.find({},{_id:0, name:1, term:1, subject:1, marks:1})
+
+db.marks.find({},{_id:0, name:1, term:1, subject:1, marks:1}).sort({name:1})
+db.marks.find(
+  {},
+  { _id: 0, name: 1, term: 1, subject: 1, marks: 1 }
+).sort({ name: 1, term: 1 })
+db.marks.find(
+  {},
+  { _id: 0, name: 1, term: 1, subject: 1, marks: 1 }
+).sort({ term: 1 })
+db.marks.aggregate([
+  {
+    $group: {
+      _id: "$name",
+      marks: {
+        $push: {
+          term: "$term",
+          subject: "$subject",
+          marks: "$marks"
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      name: "$_id",
+      marks: 1
+    }
+  }
+])
+
+db.marks.aggregate([
+  {
+    $group: {
+      _id: { name: "$name", subject: "$subject" },
+      totalMarks: { $sum: "$marks" }
+    }
+  }])
+
+db.marks.aggregate([
+  {
+    $group: {
+      _id: { name: "$name", term: "$term" },
+      totalMarks: { $sum: "$marks" }
+    }
+  }
+]).sort({_id:1})
+
+
+// condition operator
+db.employees.aggregate([
+  {$project:{
+    _id:0,
+    name:1,
+    salary:1,
+    Grade:{$cond:[{$gte:["$salary",2460]},"Grade A","Grade B"]}
+  }
+}
+])
+
+// if then else
+db.employees.aggregate([
+  {
+    $project: {
+      _id: 0,
+      name: 1,
+      salary: 1,
+      Grade: {
+        $cond: {
+          if: { $gte: ["$salary", 2460] },
+          then: "Grade A",
+          else: "Grade B"
+        }
+      }
+    }
+  }
+])
+
+
+db.employees.updateMany(
+  { department: "IT" },
+  { $set: { strsalary: "2500" } }
+);
+db.employees.updateMany(
+  { department: { $ne: "IT" } },
+  { $set: { strsalary: "1000" } }
+);
+
+
+db.employees.aggregate([
+  {
+    $project: {
+      _id: 0,
+      name: 1,
+      department: 1,
+      Sal: { 
+        $convert: { 
+          input: "$strsalary", 
+          to: "int"
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$department",
+      total: { $sum: "$Sal" }
+    }
+  },
+  {
+    $out:"depWisesalary"
+  }
+])
+
+
+// view
+db.createView(
+  "depWisesalaryView",   // view ka naam
+  "employees",           // base collection ka naam
+  [
+    {
+      $project: {
+        _id: 0,
+        name: 1,
+        department: 1,
+        Sal: { 
+          $convert: { 
+            input: "$strsalary", 
+            to: "int",
+          }
+        }
+      }
+    },
+    {
+      $group: {
+        _id: "$department",
+        total: { $sum: "$Sal" }
+      }
+    }
+  ]
+)
+
+db.employees.find({name:{$regex: "athy"}});
+
+//
+
+
+// agar case insensitive hai to $option me "i" ka use karenge
+db.employees.find({name: {$regex: "cathy", $options: "i"}})
+
+// kisi particular letter se start hone vala
+db.employees.find({name: {$regex: "^C"}})
+
+// kisi particular letter se end hone vala
+db.employees.find({name: {$regex: "y$"}})
+
