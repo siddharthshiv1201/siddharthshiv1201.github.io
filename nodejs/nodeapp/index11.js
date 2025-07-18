@@ -27,7 +27,7 @@ const isAuth = (req, res, next) => {
       return res.status(401).json({ message: "Unauthorized: No token provided" });
     }
     const decoded = jwt.verify(token, SECRET);
-    req.role = decoded.role;  // decoded token payload ko req me save karo
+    req.role = decoded.role;  
     next();
   } catch (error) {
     res.status(401).json({ message: "Unauthorized: Invalid token" });
